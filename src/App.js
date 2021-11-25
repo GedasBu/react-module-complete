@@ -27,9 +27,6 @@ function App() {
     <div className="App">
 
       <Expenses items={expenses} />
-
-
-     
     </div>
   );
 }
