@@ -5,44 +5,16 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState(""); //grazina sena ir nauja reiksmes
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
-
-  // Antras variantas inputo lauku reiksmiu fiksavimui, kuris tinka ir treciam varinatui titleChangeHandler
-  // const [userInput, setUserInput] = useState({
-  //   enteredTitle: "",
-  //   enteredAmount: "",
-  //   enteredDate: "",
-  // });
-
   const titleCahngeHandler = (event) => {
     //pirmas variantas
     setEnteredTitle(event.target.value);
-
-    // antras variantas
-    // setUserInput({
-    //   ...userInput,
-    //   enteredTitle: event.target.value
-    // })
-    //Trecias variantas
-    // setUserInput((prevState) => {
-    //   return { ...prevState, enteredTitle: event.target.value };
-    // });
   };
   const amountChnageHandler = (event) => {
     setEnteredAmount(event.target.value);
-
-    // setUserInput({
-    //   ...userInput,
-    //   enteredAmount: event.target.value,
-    // });
   };
 
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
-
-    // setUserInput({
-    //   ...userInput,
-    //   enteredDate: event.target.value,
-    // });
   };
   const submitHandler = (event) => {
     event.preventDefault();
@@ -52,11 +24,11 @@ const ExpenseForm = (props) => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-    
+
     props.onSaveExpenseData(expenseData);
-    setEnteredAmount('');
-    setEnteredDate('');
-    setEnteredTitle('');
+    setEnteredAmount("");
+    setEnteredDate("");
+    setEnteredTitle("");
   };
 
   return (
@@ -64,7 +36,11 @@ const ExpenseForm = (props) => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" value={enteredTitle} onChange={titleCahngeHandler} />
+          <input
+            type="text"
+            value={enteredTitle}
+            onChange={titleCahngeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
